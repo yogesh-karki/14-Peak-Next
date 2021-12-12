@@ -1,69 +1,439 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import  React, { useEffect,useRef } from 'react';
+import Head from "next/head";
+
+
+import FooterAnimation from '../components/FooterAnimation'
+import {ButtonDark,ButtonWhite } from '../components/Button';
+
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { FreeMode } from "swiper";
+SwiperCore.use([FreeMode]);
+
+import "swiper/css";
+import "swiper/css/free-mode";
+import styles from "../styles/Home.module.scss";
+
+import { LocationOutline, RibbonOutline, FlowerOutline, FingerPrintOutline } from "react-ionicons";
+
+
+
+
+
+const activityData = [
+    {
+        img: "./images/mountain.jpg",
+        title: "Mountaineering",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque, ducimus tempore nam non voluptates laudantium.",
+    },
+    {
+        img: "./images/trek.jpg",
+        title: "Trekking",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. voluptates laudantium.",
+    },
+    {
+        img: "./images/heli.jpg",
+        title: "Heli Trek",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque, ducimus tempore nam ",
+    },
+    {
+        img: "./images/temple.jpg",
+        title: "Nepal Tour",
+        description: "Lorem  doloremque, ducimus tempore nam non voluptates laudantium.",
+    },
+    {
+        img: "./images/heli.jpg",
+        title: "Double Summit",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque, ducimus tempore nam non voluptates laudantium.",
+    },
+];
+
+const MarkerData = [
+    {
+        id: 1,
+        region: "Everest Region",
+        top: "69%",
+        left: "81%",
+    },
+    {
+        id: 2,
+        region: "Kanchanjunga Region",
+        top: "67%",
+        left: "97%",
+    },
+];
+
+const mapChoose = [
+    {
+        title: "Unlimited Pacakge",
+        description: "Build a tailor made trip in less time",
+        icon: <RibbonOutline />,
+    },
+
+    {
+        title: "Easy Booking",
+        description: "Build a tailor made trip in less time",
+        icon: <FlowerOutline />,
+    },
+
+    {
+        title: "Service Booking",
+        description: "Build a tailor made trip in less time",
+        icon: <FingerPrintOutline />,
+    },
+];
+
+const StoryData = [
+    {
+        img: "./images/story/story-tashi.jpg",
+    },
+
+    {
+        img: "./images/story/story-mike.jpg",
+    },
+
+    {
+        img: "./images/story/story-tenzin.jpg",
+    },
+
+    {
+        img: "./images/story/story-vennsa.jpg",
+    },
+];
+
+const TestimonialData = [
+  {
+      img: './images/story/sophie.png',
+      name: 'Sophie Lavaud',
+      profession: 'Swiss / French ',
+      testimonial: '“This is now several seasons that I’m climbing peaks above 8000 meters with Seven Summit Treks and I succeed many expeditions with them. '
+  },
+
+  {
+      img: './images/story/story-mike.jpg',
+      name: 'Mike Posner',
+      profession: 'American Singer',
+      testimonial: '“This is now several seasons that I’m climbing peaks above 8000 meters with Seven Summit Treks and I succeed many expeditions with them.'
+  }
+]
+
+const UpdateData = [
+  {
+      img : './images/latest5.jpg',
+      title: 'MT. Amadablam Expedition 2021',
+      description: 'Never too late to join us. Open departure from Kathmandu ( 05 Oct - 05Nov ). There will be fixed camp set in every individual camps.'
+  },
+  {
+      img : './images/latest3.jpg',
+      title: 'Himling Himal Expedition',
+      description: 'Are you willing to join us for two night Stay at Everest Base Camp? During this shoulder expedition season in spring at Everest Base Camp'
+  },
+
+  {
+      img : './images/latest2.jpg',
+      title: 'Manasalu Expedition',
+      description: '  It is more distinctive than any other treks due to its, rich culture, pleasant salient feature and natural scenery. This trek leads you to North West of Pokhara through villages, glaciers, gorges and water falls'
+  },
+  {
+      img : './images/latest1.jpg',
+      title: 'Mount Annapurna Summit',
+      description: 'Are you willing to join us for two night Stay at Everest Base Camp? During this shoulder expedition season in spring at Everest Base Camp'
+  },
+  {
+      img : './images/latest4.jpg',
+      title: '1 Night Stay EBC Stay',
+      description: 'Everest base camp trek ( EBC Trek) is a great introductory lodge trek that offer sensational mountain views and an insight into the lives of the Sherpa people.'
+  }
+]
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Generated by create next app" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    const introHead = useRef();
+    const introDiv = useRef();
+    const introText = useRef();
+    
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+   useEffect(() => {
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+   
+        var introtl =  gsap.timeline({
+            scrollTrigger: {
+                trigger: introDiv.current,
+                start: 'top center+=25%',
+            },
+            
+        });
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+        introtl.from(introHead.current, {
+            opacity : 0,
+            y: 100,
+            duration: 0.8
+        })
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+        introtl.from(introText.current, {
+            opacity : 0,
+            y: 80,
+            duration: 0.8
+        },0.3)
+        
+    
+   })
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+    return (
+        <>
+            <Head>
+                <title>14 Peak Expedition</title>
+            </Head>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
-  )
+            <section className={styles.banner}>
+                <div className={styles.video_container}>
+                    <video className={styles.featured_video} poster="" autoPlay="autoPlay" playsInline="playsInline" muted loop="loop">
+                        <source src="./images/videos/4 shots.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div className={styles.banner_text} >
+                    <h1>New Perspective In beautiful mountains.</h1>
+                </div>
+
+                <div className={styles.search_bar}>
+                    <input type="text" placeholder="Discover Your Adventure..." />
+                    <button><img src="images/assets/right-arrow.svg" alt="" /></button>
+  
+                </div>
+            </section>
+
+            <section className={styles.intro} ref={introDiv}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-8">
+                            <div className={styles.intro_head} ref={introHead}>
+                                <h4 className="heading_text">Love and Persistence in climbing mountains</h4>
+                            </div>
+
+                            <div className={styles.intro_text} ref={introText}>
+                                <p >
+                                    When it comes to scaling the peaks, dangers are plenty. Although the mountains seem serene and gentle from a distance, the weather there this treacherous. The terrain can be downright unforgiving and to
+                                    have someone accompanying you
+                                </p>
+
+                                <p >
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, quasi. Animi deserunt corrupti non enim exercitationem optio debitis aliquam, iste omnis ex sint, dolorem molestiae sequi! Dolorum
+                                    labore praesentium illum!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="col-md-4">
+                            <div className={styles.intro_img}>
+                                <img src="./images/intro-img.jpg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className={styles.activities}>
+                <div className={styles.custom_container}>
+                    <Swiper spaceBetween={30} slidesPerView={4} freeMode={true} className= {styles.activities_slides}>
+                        <SwiperSlide>
+                            <div className={styles.activity_slide}>
+                                <div className={styles.activity_head}>
+                                    <h4 className="heading_text">Expedition Services</h4>
+                                    <p>Achieve your goal and dream. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, aperiam?</p>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+
+                        {activityData.map((data, index) => {
+                            return (
+                                <SwiperSlide key={index}>
+                                    <div className={styles.activity_slide}>
+                                        <figure>
+                                            <img src={data.img} alt="" />
+                                        </figure>
+
+                                        <div className={styles.slide_content}>
+                                            <h4>{data.title}</h4>
+                                            <p>{data.description}</p>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
+                            );
+                        })}
+                    </Swiper>
+                </div>
+            </section>
+
+            <section className={styles.destination} style={{ backgroundImage: "url('/images/destinations-background.png')" }}>
+                <div className="container">
+                    <div className={styles.destination_head}>
+                        <span className="heading-subtitle">Experince Awaits</span>
+                        <h4 className="heading_text">Choose Your Dream Destination</h4>
+                    </div>
+
+                    <div className={styles.nepal_map}>
+                        <img src="./images/nepal.png" alt="" />
+
+                        {MarkerData.map((val, index) => {
+                            return (
+                                <div className={styles.marker_region} key={index} style={{ top: val.top, left: val.left }}>
+                                    <div className={styles.marker_icon}>
+                                        <LocationOutline />
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    <div className={styles.choose}>
+                        {mapChoose.map((val, index) => {
+                            return (
+                                <div className={styles.ch_item} key={index}>
+                                    {val.icon}
+
+                                    <div className={styles.icon_inner}>
+                                        <h4>{val.title}</h4>
+                                        <p>{val.description}</p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            <section className={styles.stories} style={{ backgroundImage: "url('/images/star-background.jpg')" }}>
+                <div className="container">
+                    <div className={styles.story_article}>
+                        <div className={styles.story_header}>
+                            <span className="heading_subtitle">Overcoming Fears</span>
+                            <h4 className="heading_text">Inspriring Stories</h4>
+                            <p>Inspirational Stories Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quibusdam saepe corrupti corporis dignissimos consequuntur maxime fugiat, voluptate quia</p>
+                        </div>
+
+                        <div className={styles.story_right}>
+                            {StoryData.slice(0, 2).map((val, index) => {
+                                return (
+                                    <figure className={styles.media_story} key={index}>
+                                        <img src={val.img} alt="" />
+
+                                        <div className={styles.story_play}>
+                                            <a href="#">
+                                                <img src="./images/assets/play.svg" alt="" />
+                                            </a>
+                                        </div>
+                                    </figure>
+                                );
+                            })}
+                        </div>
+
+                        <div className={styles.story_left}>
+                            {StoryData.slice(2, 5).map((val, index) => {
+                                return (
+                                    <figure className={styles.media_story} key={index}>
+                                        <img src={val.img} alt="" />
+
+                                        <div className={styles.story_play}>
+                                            <a href="#">
+                                                <img src="./images/assets/play.svg" alt="" />
+                                            </a>
+                                        </div>
+                                    </figure>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className={styles.tailor}>
+                <div className="container">
+                    <div className={styles.tm_wrap}>
+                        <div className={styles.tm_article} style={{ backgroundImage: "url('/images/tailor-made.png')" }}>
+                            <div className={styles.tm_article_wrap}>
+                              <h4 className="heading_text">An Idea? A travel Plan?</h4>
+                              <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis cum maxime at soluta delectus repudiandae quibusdam culpa, dolorum quod molestiae repudiandae officiis?
+                              </p>
+                              <p>
+                              Eaque quam cum, expedita, qui tempore cumque quod obcaecati nihil nostrum possimus totam!
+                              </p>
+                            </div>
+                        </div>
+
+                        <div className={styles.testimonial}>
+                          <div className={styles.twrap}>
+                            <h4 className="heading_text">Our Travelers</h4>
+                          </div>
+
+                          <Swiper spaceBetween={0}  className= {styles.testimonial_slides}>
+                              {
+                                TestimonialData.map((val,index) => {
+                                  return (
+                                    <SwiperSlide key={index}>
+                                      <div className={styles.testimonial_item}>
+                                        <div className={styles.ti_img}>
+                                          <img src={val.img} alt="" />
+                                        </div>
+
+                                        <div className={styles.ti_desc}>
+                                          <h5>{val.name }</h5>
+                                          <span>{val.profession} </span>
+                                          <p>{val.testimonial } </p>
+                                        </div>
+                                      </div>
+                                    </SwiperSlide>
+                                  )
+                                })
+                              }
+                          </Swiper>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className={styles.featured}>
+              <div className="container">
+                <div className={styles.featured_head}>
+                  <span className="heading_subtitle">Never to late to join us</span>
+                  <h4 className="heading_text">Latest Update</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit . 
+                  Est officia provident veniam quod natus consequatur architecto ullam ipsa, aliquid earum?</p>            
+                </div>
+              </div>
+
+              <Swiper slidesPerView={4} centeredSlides={true} freeMode={true} spaceBetween={30} className={styles.latest_slider}>
+                  {
+                    UpdateData.map((val, index) => {
+                        return (
+                            <SwiperSlide key={index}>
+                              <div className={styles.latest_item}>
+                                  <div className={styles.latest_img}>
+                                      <img src={val.img} alt="" />
+                                  </div>
+
+                                  <h5>{val.title}</h5>
+                                  <p>
+                                      {val.description}
+                                  
+                                  </p>
+
+                                  <ButtonDark btnText={'Discover Trip'} />
+                              </div>
+
+                            </SwiperSlide>
+                        )
+                    })
+                  }
+                </Swiper>
+            </section>
+
+            <FooterAnimation />
+
+        </>
+    );
 }
