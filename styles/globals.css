@@ -63,6 +63,10 @@ span {
   margin: auto;
 }
 
+figure {
+  margin-bottom: 0;
+}
+
 
 .tour_tabs .ant-tabs-tab-btn {
   font-size: 16px;
@@ -112,6 +116,10 @@ span {
   cursor: not-allowed;
 }
 
+.spacing > * {
+  padding-right: calc(var(--bs-gutter-x) * 0.8);
+  padding-left: calc(var(--bs-gutter-x) * 0.8);
+}
 
 
 .faq_content {

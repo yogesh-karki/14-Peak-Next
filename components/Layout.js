@@ -23,7 +23,7 @@ export const Layout = ({children}) => {
                     <nav>
                         <ul>
                             <li>
-                                <a href="">                               
+                                <a href="/mountaineering">                               
                                     <div className={styles.nav_item}>
                                         Who we are
 
@@ -34,7 +34,7 @@ export const Layout = ({children}) => {
                             </li>
 
                             <li>
-                                <Link href="/tour">                             
+                                <Link href="/mountaineering">                             
                                     <a>
                                         <div className={styles.nav_item}>
                                             Expedition
