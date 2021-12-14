@@ -1,20 +1,5 @@
-import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
-import 'antd/dist/antd.css'
 
-const menu = (
-    <Menu>
-      <Menu.Item key="0">
-        above 8000m
-      </Menu.Item>
-      <Menu.Item key="1">
-        above 7000m
-      </Menu.Item>
-      <Menu.Item key="3">above 6000m</Menu.Item>
-    </Menu>
-  );
   
-
 import Head from "next/head";
 
 import BannerSlider from '../components/BannerSlider'
@@ -103,12 +88,23 @@ const mountaineering = () => {
             <div className={styles.search_card}>
                 <div className="container">
                     <div className={styles.search}>
-                        <Dropdown className={styles.search_dropdown} overlay={menu} trigger={['click']}>
-                            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                All Mountaineering Expeditions
-                            <DownOutlined />
+                   
+                            <a className={`${styles.search_btns} ${styles.active}`} >
+                                All Expeditions
                             </a>
-                        </Dropdown>
+
+                            <a className={styles.search_btns} >
+                                Abover 8000m
+                            </a>
+
+                            <a className={styles.search_btns} >
+                                Abover 7000m
+                            </a>
+
+                            <a className={styles.search_btns} >
+                                Abover 6000m
+                            </a>
+                      
                     </div>
                 </div>
             </div>
@@ -119,7 +115,7 @@ const mountaineering = () => {
                         {
                             packageData.map((val, index) => {
                                 return(
-                                    <div className="col-md-3" key={index}>
+                                    <div className="col-md-6 col-lg-4 col-xl-3" key={index}>
                                         <PackageCard title={val.title} image={val.image} category={val.category} subCategory= {val.subCategory} />
                                     </div>
                                 )

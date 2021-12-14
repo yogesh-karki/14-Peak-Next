@@ -1,88 +1,15 @@
 import Link from 'next/link'
 
+import Header from './Header'
+
 import {Affilation, TravelPartner} from './FooterLogo'
 import styles from '../styles/Layout.module.scss'
 
 
 export const Layout = ({children}) => {
     return (
-        <>
-       
-
-        <header className={styles.header}>
-            <div className="container">
-                <div className={styles.nav_container}>
-                    <div className={styles.logo}>
-                        <Link href= "/">
-                            <a >
-                                <img src="./images/assets/logo-color.svg" alt="" />
-                            </a>
-                        </Link>
-                    </div>
-
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="/mountaineering">                               
-                                    <div className={styles.nav_item}>
-                                        Who we are
-
-                                        <span className={styles.subtitle}>About Us</span>
-                                    </div>
-                                </a>
-                                
-                            </li>
-
-                            <li>
-                                <Link href="/mountaineering">                             
-                                    <a>
-                                        <div className={styles.nav_item}>
-                                            Expedition
-
-                                            <span className={styles.subtitle}>Services</span>
-                                        </div>
-                                    </a>
-                                </Link>
-                                
-                            </li>
-
-                            <li>
-                                <a href="">                               
-                                    <div className={styles.nav_item}>
-                                    Breathless
-
-                                        <span className={styles.subtitle}>World Highest Race</span>
-                                    </div>
-                                </a>
-                                
-                            </li>
-
-                            <li>
-                                <a href="">                               
-                                    <div className={styles.nav_item}>
-                                        Useful Info
-
-                                        <span className={styles.subtitle}>A Tour Guide</span>
-                                    </div>
-                                </a>
-                                
-                            </li>
-
-                            <li>
-                                <a href="">                               
-                                    <div className={styles.nav_item}>
-                                    Tailor-made Trips
-
-                                        <span className={styles.subtitle}>& individually</span>
-                                    </div>
-                                </a>
-                                
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
+        <div className="main-container">
+        <Header />        
 
             <div>
                 {children}
@@ -142,7 +69,7 @@ export const Layout = ({children}) => {
             </div>
         </footer>
 
-        </>
+        </div>
     )
 }
 
