@@ -3,28 +3,34 @@ import { useEffect } from 'react';
 import Link from 'next/link'
 
 import styles from '../styles/Header.module.scss'
+import { ChevronDownOutline } from 'react-ionicons'
 
 const Header = () => {
 
     useEffect(() =>{
         const navLinks = document.querySelectorAll('.main-menu ')
         const subMenu = document.querySelectorAll('.sub-menu') ;
-        const header = document.querySelector('header')
+        const header = document.querySelector('header');
+        const menuArrow = document.querySelectorAll('.menu_dropdown')
+       
 
-
-        var activeNav = "";
 
         navLinks.forEach((link, i) => {
         
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                addSubMenu(i)       
+                console.log(link)
+                addSubMenu(i)  
+
                 link.classList.add('active')
+
+                
             })
 
             link.addEventListener('dblclick', (e) => {
                 e.preventDefault();
-                removeSubMenu(i)       
+                removeSubMenu(i)     
+                removeDropArrow()  
                 
             })
               
@@ -34,10 +40,20 @@ const Header = () => {
 
         const addSubMenu = (i) => {
             removeSubMenu()
+            removeDropArrow()
+            menuArrow[i].style.display = 'flex'
             subMenu[i].classList.add(styles.menu_show)
             document.querySelector('.main-container').classList.add('scroll-lock')
             header.classList.add(styles.solid);
         }
+
+        const removeDropArrow = () => {
+            menuArrow.forEach((arrow) => {
+                arrow.style.display = 'none'
+            })
+        }
+
+   
 
         const removeSubMenu = () => {
             header.classList.remove(styles.solid);
@@ -79,9 +95,7 @@ const Header = () => {
                                             <span className={styles.subtitle}>About Us</span>
                                         </div>
                                     </a>
-
-                                    
-                                    
+                                    <span className={`${styles.dropdown} menu_dropdown`}><ChevronDownOutline /> </span>
                                 </li>
 
                                 <li className='main-menu'>                         
@@ -93,7 +107,7 @@ const Header = () => {
                                         </div>
 
                                     </a>                          
-                                    
+                                    <span className={`${styles.dropdown} menu_dropdown`}><ChevronDownOutline /> </span>
                                 </li>
 
                                 <li className='main-menu'>
@@ -104,7 +118,7 @@ const Header = () => {
                                             <span className={styles.subtitle}>World Highest Race</span>
                                         </div>
                                     </a>
-                                    
+                                    <span className={`${styles.dropdown} menu_dropdown`}><ChevronDownOutline /> </span>
                                 </li>
 
                                 <li className='main-menu'>
@@ -115,7 +129,7 @@ const Header = () => {
                                             <span className={styles.subtitle}>A Tour Guide</span>
                                         </div>
                                     </a>
-                                    
+                                    <span className={`${styles.dropdown} menu_dropdown`}><ChevronDownOutline /> </span>
                                 </li>
 
                                 <li className='main-menu'>
@@ -126,7 +140,7 @@ const Header = () => {
                                             <span className={styles.subtitle}>& individually</span>
                                         </div>
                                     </a>
-                                    
+                                    <span className={`${styles.dropdown} menu_dropdown`}><ChevronDownOutline /> </span>
                                 </li>
                             </ul>
                         </nav>

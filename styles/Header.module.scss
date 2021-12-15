@@ -14,6 +14,26 @@ $dark-blue: #151727;
         display: none;
     }
 
+    .dropdown {
+        position: absolute;
+        bottom: 20px;
+        right: -20px;
+        width: 112px;
+        height: 72px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        z-index: 8;
+        cursor: pointer;
+        display: none;
+
+        svg {
+            width: 15px;
+            height: 15px;
+            color: $base-color;
+        }
+    }
+
     &.solid {
         .logo_text {
             display: block;
@@ -50,6 +70,7 @@ $dark-blue: #151727;
         }
     }
 
+    
 
     .nav_container {
         display: flex;
@@ -60,6 +81,7 @@ $dark-blue: #151727;
                 width: 311px;
             }
         }
+
 
         nav {
             position: relative;
