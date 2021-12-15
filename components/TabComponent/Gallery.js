@@ -20,7 +20,8 @@ const Gallery = () => {
     return (
         <div>
 
-            <Swiper slidesPerView={'auto'} spaceBetween={30}  className="gallery">
+            <Swiper 
+            slidesPerView={'auto'} spaceBetween={30}  className="gallery">
 
                 <SwiperSlide  >
                     <div className={styles.gallery_item} >
