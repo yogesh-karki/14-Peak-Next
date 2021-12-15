@@ -477,7 +477,7 @@ $dark-blue: #151727;
 
     .text {
         position: absolute;
-        top: 50%;
+        bottom: 5%;
         left: 50%;
         transform: translate(-50%,-50%);
         z-index: 4;
@@ -487,9 +487,10 @@ $dark-blue: #151727;
         h2 {
             color: #fff;
             max-width: 740px;
+            font-family: "Kudryashev Headline";
             margin: auto;
             font-size: 68px;
-            font-weight: 600;
+            font-weight: 700;
             line-height: 1.18;
             text-shadow: 1px 3px 1px rgba(72, 65, 65, 0.3);
         }
@@ -528,7 +529,7 @@ $dark-blue: #151727;
 
     .text {
         position: absolute;
-        top: 50%;
+        bottom: 5%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 4;
@@ -537,10 +538,11 @@ $dark-blue: #151727;
 
         h2 {
             color: #fff;
-            max-width: 480px;
+            max-width: 780px;
             margin: auto;
             font-size: 68px;
-            font-weight: 600;
+            font-family: "Kudryashev Headline";
+            font-weight: 700;
             line-height: 1.18;
             text-shadow: 1px 3px 1px rgba(72, 65, 65, 0.3);
         }
@@ -751,18 +753,27 @@ $dark-blue: #151727;
 }
 
 
+
+
 @media screen and (max-width: 768px) {
     
-
     .footer_animations {
         display: none;
     }
 
-}
 
 
-@media screen and (max-width: 768px) {
-    
+    .banner_slider, .inner_banner {
+        .text {
+            bottom: 20px;
+            transform: translate(-50% ,0);
+            width: 100%;
+
+            h2 {
+                font-size: 48px;
+            }
+        }
+    }
 
     .footer_top {
         .ft_card {
@@ -808,14 +819,6 @@ $dark-blue: #151727;
                     width: 80%;
                     padding-right: 0px;
                 }
-            }
-        }
-    }
-
-    .inner_banner {
-        .text {
-            h2 {
-                font-size: 48px;
             }
         }
     }

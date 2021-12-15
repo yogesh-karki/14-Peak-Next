@@ -10,11 +10,14 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { FreeMode } from "swiper";
-SwiperCore.use([FreeMode]);
+import SwiperCore, { FreeMode, Pagination, Navigation } from "swiper";
+SwiperCore.use([FreeMode, Pagination, Navigation]);
 
 import "swiper/css";
 import "swiper/css/free-mode";
+import "swiper/css/pagination"
+import "swiper/css/navigation"
+
 import styles from "../styles/Home.module.scss";
 
 import { LocationOutline, RibbonOutline, FlowerOutline, FingerPrintOutline } from "react-ionicons";
@@ -40,13 +43,18 @@ const activityData = [
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque, ducimus tempore nam ",
     },
     {
-        img: "./images/temple.jpg",
-        title: "Nepal Tour",
+        img: "./images/double-summit.jpg",
+        title: "Double Summit",
         description: "Lorem  doloremque, ducimus tempore nam non voluptates laudantium.",
     },
     {
-        img: "./images/heli.jpg",
-        title: "Double Summit",
+        img: "./images/seven-sumit.jpg",
+        title: "7 summit",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque, ducimus tempore nam non voluptates laudantium.",
+    },
+    {
+        img: "./images/14-peak-special.jpg",
+        title: "14 Peak Special",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque, ducimus tempore nam non voluptates laudantium.",
     },
 ];
@@ -158,6 +166,23 @@ export default function Home() {
 
    useEffect(() => {
 
+    var swiperBtnNext = document.querySelector('.swiper-button-next')
+    var swiperBtnPrev = document.querySelector('.swiper-button-prev')
+    
+    var swiperBtnContent = document.createElement('div')
+    swiperBtnContent.innerHTML =    `<span >
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.06 20.91"><path d="M0 11.1h25.86L16.97 20c0 .04.91.92.91.91l10-10c0-.01.01-.01.02-.02l.04-.04c.01-.01.02-.02.02-.03.01-.01.02-.03.03-.05.01-.01.01-.03.02-.04 0-.01.01-.02.01-.03v-.02c.01-.01.01-.03.01-.04 0-.02.01-.03.01-.05 0-.01 0-.03.01-.04 0-.02 0-.03.01-.05v-.05-.05c0-.02 0-.03-.01-.05 0-.01 0-.03-.01-.04 0-.02-.01-.03-.01-.05 0-.01-.01-.03-.01-.04 0-.01 0-.01-.01-.02 0-.01-.01-.02-.02-.03-.01-.01-.01-.03-.02-.04-.01-.02-.02-.03-.03-.05-.01-.01-.02-.02-.02-.03-.01-.01-.02-.03-.04-.04.01 0 0-.01 0-.01l-10-10c0-.01-.91.91-.91.91l8.89 8.9H0v1.29z" fill="#333"></path></svg>
+                                    </span>`
+
+    var swiperBtnContentPrev = document.createElement('div')
+    swiperBtnContentPrev.innerHTML =    `<span >
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.06 20.91"><path d="M0 11.1h25.86L16.97 20c0 .04.91.92.91.91l10-10c0-.01.01-.01.02-.02l.04-.04c.01-.01.02-.02.02-.03.01-.01.02-.03.03-.05.01-.01.01-.03.02-.04 0-.01.01-.02.01-.03v-.02c.01-.01.01-.03.01-.04 0-.02.01-.03.01-.05 0-.01 0-.03.01-.04 0-.02 0-.03.01-.05v-.05-.05c0-.02 0-.03-.01-.05 0-.01 0-.03-.01-.04 0-.02-.01-.03-.01-.05 0-.01-.01-.03-.01-.04 0-.01 0-.01-.01-.02 0-.01-.01-.02-.02-.03-.01-.01-.01-.03-.02-.04-.01-.02-.02-.03-.03-.05-.01-.01-.02-.02-.02-.03-.01-.01-.02-.03-.04-.04.01 0 0-.01 0-.01l-10-10c0-.01-.91.91-.91.91l8.89 8.9H0v1.29z" fill="#333"></path></svg>
+                                    </span>`
+
+    swiperBtnNext.appendChild(swiperBtnContent)
+    swiperBtnPrev.appendChild(swiperBtnContentPrev)
+
+
    
         var introtl =  gsap.timeline({
             scrollTrigger: {
@@ -237,35 +262,56 @@ export default function Home() {
             </section>
 
             <section className={styles.activities}>
-                <div className={styles.custom_container}>
-                    <Swiper spaceBetween={30} slidesPerView={4} freeMode={true} className= {styles.activities_slides}>
-                        <SwiperSlide>
-                            <div className={styles.activity_slide}>
-                                <div className={styles.activity_head}>
-                                    <h4 className="heading_text">Expedition Services</h4>
-                                    <p>Achieve your goal and dream. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, aperiam?</p>
-                                </div>
+                <Swiper
+                 spaceBetween={30} 
+                 className= {`${styles.activities_slides} gbl-act-slider`}
+                 navigation={true}
+                 breakpoints={{
+                    "640": {
+                        "slidesPerView": 1,
+                        "spaceBetween": 0
+                    },
+                    "768": {
+                        "slidesPerView": 2,
+                        "spaceBetween": 15
+                    },
+                    "1024": {
+                        "slidesPerView": 3,
+                        "spaceBetween": 30
+                    },
+                    "1400": {
+                        "slidesPerView": 3.75,
+                        "spaceBetween": 30
+                    }
+                 }}  
+                >
+                    <SwiperSlide className={styles.wrap}>
+                        <div className={styles.activity_slide}>
+                            <div className={styles.activity_head}>
+                                <h4 className="heading_text">Expedition Services</h4>
+                                <p>Achieve your goal and dream. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, aperiam?</p>
                             </div>
-                        </SwiperSlide>
+                        </div>
+                    </SwiperSlide>
 
-                        {activityData.map((data, index) => {
-                            return (
-                                <SwiperSlide key={index}>
-                                    <div className={styles.activity_slide}>
-                                        <figure>
-                                            <img src={data.img} alt="" />
-                                        </figure>
+                    {activityData.map((data, index) => {
+                        return (
+                            <SwiperSlide className={styles.wrap} key={index}>
+                                <div className={styles.activity_slide}>
+                                    <figure>
+                                        <img src={data.img} alt="" />
+                                    </figure>
 
-                                        <div className={styles.slide_content}>
-                                            <h4>{data.title}</h4>
-                                            <p>{data.description}</p>
-                                        </div>
+                                    <div className={styles.slide_content}>
+                                        <h4>{data.title}</h4>
+                                        
                                     </div>
-                                </SwiperSlide>
-                            );
-                        })}
-                    </Swiper>
-                </div>
+                                </div>
+                            </SwiperSlide>
+                        );
+                    })}
+                </Swiper>
+              
             </section>
 
             <section className={styles.destination} style={{ backgroundImage: "url('/images/destinations-background.png')" }}>
@@ -370,7 +416,14 @@ export default function Home() {
                             <h4 className="heading_text">Our Travelers</h4>
                           </div>
 
-                          <Swiper spaceBetween={0}  className= {styles.testimonial_slides}>
+                            <Swiper 
+                             spaceBetween={0}  
+                             className= {styles.testimonial_slides}
+                             pagination={{
+                             "dynamicBullets": true,
+                             "className": styles.pagination
+                             }}
+                            >
                               {
                                 TestimonialData.map((val,index) => {
                                   return (

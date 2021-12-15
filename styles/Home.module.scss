@@ -130,13 +130,20 @@ $dark-blue: #151727;
     padding-top: 50px;
     background-image: linear-gradient(to top, #e6f5fa 0%, white 100%);
 
+
+
     .activities_slides {
-        width: 120%;
+        max-width: 1540px;
+        overflow: visible;
+        margin-left: auto;
+        margin-right: auto;
+
     }
 
     .activity_slide {
      
         height: 662px;
+        overflow: hidden;
        
         .activity_head {
             h4 {
@@ -147,6 +154,14 @@ $dark-blue: #151727;
         figure {
             position: relative;
             width: 100%;
+            height: 100%;
+
+            &:hover {
+
+                img {
+                    transform: translate3d(-15px, -15px, -15px) scale(1.21);
+                }
+            }
             
         
             &::before {
@@ -157,6 +172,8 @@ $dark-blue: #151727;
                 position: absolute;
                 top: 0;
                 left: 0;
+                z-index: 3;
+                transition: 0.5s;
     
             }
     
@@ -164,6 +181,8 @@ $dark-blue: #151727;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                transform:scale(1.2);
+                transition: 1.5s;
             }
     
         }
@@ -173,15 +192,17 @@ $dark-blue: #151727;
             bottom: 50px;
             left: 40px;
             color: #fff;
+            z-index: 6;
 
             h4 {
-                font-weight: 600;
+                font-weight: 700;
                 text-shadow: 1px 3px 1px rgba(72, 65, 65, 0.5);
+                text-transform: uppercase;
+                font-family: "Kudryashev Headline";
+               
             }
     
-            p {
-                display: none;
-            }
+            
            
         }
     
@@ -484,6 +505,10 @@ $dark-blue: #151727;
                 height: 100%;
                 overflow: hidden;
 
+                .pagination {
+                    position: relative;
+                }
+
                 .testimonial_item {
                     text-align: center;
                     margin-top: 20px;
@@ -624,9 +649,18 @@ $dark-blue: #151727;
     }
   
     .activities {
+        .activities_slides {
+            max-width: 1220px;
+    
+        }
+
         .activity_slide {
+            height: 495px;
+            overflow: hidden;
+
             .slide_content {
-                bottom: 100px
+                bottom: 30px;
+                left: 20px;
             }
         }
     }
@@ -771,11 +805,22 @@ $dark-blue: #151727;
         display: block;
     }
     
-    .latest_slider, .footer_animations,.activities {
-        display: none;
+    // .latest_slider, .footer_animations,.activities {
+    //     display: none;
+    // }
+
+    .activities {
+        .activities_slides {
+            .wrap {
+                width: 100%;
+
+                &:first-child {
+                    display: none;
+                }
+            }
+        }
     }
 
-  
 }
 
 

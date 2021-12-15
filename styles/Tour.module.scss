@@ -552,6 +552,8 @@ $dark-blue: #151727;
             }
         }
     }
+
+
     
     .iti_flex {
         display: block;
@@ -583,6 +585,14 @@ $dark-blue: #151727;
                         width: 100%;
                         padding: 0;
                         margin-top: 20px;
+
+                        .overflow {
+                            height: auto ;
+                            -webkit-line-clamp: none;
+                            overflow: visible;
+                            -webkit-box-orient: unset;
+                            text-overflow: none;
+                        }
                     }
                 }
             }
