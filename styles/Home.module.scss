@@ -511,7 +511,7 @@ $dark-blue: #151727;
 
                 .testimonial_item {
                     text-align: center;
-                    margin-top: 20px;
+                    margin-top: 10px;
         
                     img {
                         width: 180px;
@@ -540,6 +540,11 @@ $dark-blue: #151727;
                             font-size: 17px;
                             font-weight: 200;
                         }
+
+                        a {
+                            justify-content: center;
+                            margin-top: 5px;
+                        }
         
                     }
                 }
@@ -553,6 +558,7 @@ $dark-blue: #151727;
     position: relative;
     z-index: 2;
     padding: 100px 0;
+    overflow: hidden;
 
 
     &:after {
@@ -574,6 +580,14 @@ $dark-blue: #151727;
         width: 450px;
 
        
+    }
+
+    .latest_slider {
+        max-width: 1525px;
+        overflow: visible;
+        margin-left: auto;
+        margin-right: auto;
+
     }
 
     .latest_slider {
@@ -728,19 +742,31 @@ $dark-blue: #151727;
         }
     }
 
-    .intro .intro_text {
-        margin-left: 0;
+    .intro {
+        margin-bottom: 0;
+
+        .intro_text {
+            margin-left: 0;
+        }
     }
 
     
 
     .destination {
+        min-height: auto;
+
         .destination_head {
             position: relative;
+            margin-top: 30px;
             top: 0;
             width: 60%;
             text-align: left;
         }
+
+        .nepal_map {
+            padding-top: 0;
+        }
+
     }
 
     .stories {
@@ -773,6 +799,12 @@ $dark-blue: #151727;
             background-color: #304E6E;
             height: auto;
             padding: 50px 0;
+
+            .testimonial_slides {
+                padding-bottom: 50px;
+            }
+
+
 
             &:after {
                 display: none;

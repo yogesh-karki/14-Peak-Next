@@ -125,7 +125,20 @@ const TestimonialData = [
       name: 'Mike Posner',
       profession: 'American Singer',
       testimonial: '“This is now several seasons that I’m climbing peaks above 8000 meters with Seven Summit Treks and I succeed many expeditions with them.'
-  }
+  },
+  {
+    img: './images/story/sophie.png',
+    name: 'Sophie Lavaud',
+    profession: 'Swiss / French ',
+    testimonial: '“This is now several seasons that I’m climbing peaks above 8000 meters with Seven Summit Treks and I succeed many expeditions with them. '
+    },
+
+    {
+        img: './images/story/story-mike.jpg',
+        name: 'Mike Posner',
+        profession: 'American Singer',
+        testimonial: '“This is now several seasons that I’m climbing peaks above 8000 meters with Seven Summit Treks and I succeed many expeditions with them.'
+    },
 ]
 
 const UpdateData = [
@@ -262,6 +275,13 @@ export default function Home() {
             </section>
 
             <section className={styles.activities}>
+                <div className="container">
+                    <div className={`${styles.activity_head} mb-show`}>
+                        <h4 className="heading_text">Expedition Services</h4>
+                        <p>Achieve your goal and dream. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, aperiam?</p>
+                    </div>
+                </div>
+
                 <Swiper
                  spaceBetween={30} 
                  className= {`${styles.activities_slides} gbl-act-slider`}
@@ -418,7 +438,7 @@ export default function Home() {
 
                             <Swiper 
                              spaceBetween={0}  
-                             className= {styles.testimonial_slides}
+                             className= {`${styles.testimonial_slides} testimonial_slides` }
                              pagination={{
                              "dynamicBullets": true,
                              "className": styles.pagination
@@ -437,7 +457,10 @@ export default function Home() {
                                           <h5>{val.name }</h5>
                                           <span>{val.profession} </span>
                                           <p>{val.testimonial } </p>
+                                          <ButtonWhite />
                                         </div>
+
+                                        
                                       </div>
                                     </SwiperSlide>
                                   )
@@ -459,7 +482,31 @@ export default function Home() {
                 </div>
               </div>
 
-              <Swiper slidesPerView={4} centeredSlides={true} freeMode={true} spaceBetween={30} className={styles.latest_slider}>
+                <Swiper 
+                 slidesPerView={3.5}  
+                 spaceBetween={30} 
+                 className={`${styles.latest_slider} gbl-act-slider`}
+                 navigation={true}
+                 breakpoints={{
+                    "640": {
+                        "slidesPerView": 1,
+                        "spaceBetween": 0
+                    },
+                    "768": {
+                        "slidesPerView": 2,
+                        "spaceBetween": 15
+                    },
+                    "1024": {
+                        "slidesPerView": 3,
+                        "spaceBetween": 30
+                    },
+                    "1400": {
+                        "slidesPerView": 3.75,
+                        "spaceBetween": 30
+                    }
+                 }}  
+                 
+                 >
                   {
                     UpdateData.map((val, index) => {
                         return (

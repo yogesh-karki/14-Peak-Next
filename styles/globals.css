@@ -4,7 +4,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Pragmatica';
-
+  scroll-behavior: smooth;
 
 }
 
@@ -218,10 +218,19 @@ figure {
   transition: all 0.5s;
 }
 
-/* .gbl-act-slider .swiper-button-next:hover::after {
-  border: 1px dotted #fff;
-  transform: rotate(760deg);
-} */
+.testimonial_slides .swiper-pagination {
+  bottom: 50px !important;
+  position: absolute;
+}
+
+.testimonial_slides .swiper-pagination-bullet-active-main {
+  color: #fff;
+  background: #fff;
+}
+
+.mb-show {
+  display: none;
+}
 
 
 @media screen and (max-width: 1600px) {
@@ -248,6 +257,15 @@ figure {
 
   .gbl-act-slider .swiper-button-next > div svg, .gbl-act-slider .swiper-button-prev > div svg {
     width: 18px;
+  }
+
+  .testimonial_slides .swiper-pagination {
+    bottom: 5px !important;
+    position: absolute;
+  }
+
+  .mb-show {
+    display: block;
   }
 
 }
