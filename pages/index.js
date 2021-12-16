@@ -483,7 +483,7 @@ export default function Home() {
               </div>
 
                 <Swiper 
-                 slidesPerView={3.5}  
+             
                  spaceBetween={30} 
                  className={`${styles.latest_slider} gbl-act-slider`}
                  navigation={true}
@@ -501,7 +501,7 @@ export default function Home() {
                         "spaceBetween": 30
                     },
                     "1400": {
-                        "slidesPerView": 3.75,
+                        "slidesPerView": 3.5,
                         "spaceBetween": 30
                     }
                  }}  
