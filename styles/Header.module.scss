@@ -173,11 +173,18 @@ $dark-blue: #151727;
         .img {
             width: 60%;
             text-align: center;
+            position: relative;
+            height: 572px;
 
             img{
+                position: absolute;
                 width: 450px;
                 height: 572px;
                 object-fit: cover;
+                // display: none;
+                top: 0;
+                left: 0;
+                // clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
 
             }
         }

@@ -7,30 +7,154 @@ import { ChevronDownOutline } from 'react-ionicons'
 
 const Header = () => {
 
-    const mainNavData = [
+    // const mainNavData = [
+    //     {
+    //         title: 'Who we are',
+    //         subtitle: 'About Us', 
+      
+            
+    //     },
+
+    //     {
+    //         title: 'Expedition',
+    //         subtitle: 'Services'
+    //     },
+    //     {
+    //         title: 'Breathless',
+    //         subtitle: 'World Highest Race'
+    //     },
+    //     {
+    //         title: 'Inspriring Stories',
+    //         subtitle: 'News & Updates'
+    //     },
+    //     {
+    //         title: 'Useful Info',
+    //         subtitle: 'A Tour Guide'
+    //     },
+   
+    // ];
+
+    const navData = [
         {
-            title: 'Who we are',
-            subtitle: 'About Us'
+            mainNavaData:{
+                title: 'Who we are',
+                subtitle: 'About Us', 
+            },
+            subMenuData: [
+                {
+                    title: "About",
+                    img: "./images/story/story-tashi.jpg"
+                },
+                {
+                    title: "Company",
+                    img: './images/story/story-tenzin.jpg.jpg'
+                },
+                {
+                    title: 'Our Team',
+                    img: './images/our-team.jpg'
+                },
+                {
+                    title: 'Expertise',
+                    img: './images/expertise.jpg'
+                },
+                {
+                    title: 'Contact Us',
+                    img: './images/temple.jpg'
+                }
+            ]
         },
 
         {
-            title: 'Expedition',
-            subtitle: 'Services'
+            mainNavaData:{
+                title: 'Expedition',
+                subtitle: 'Services', 
+            }, 
+            subMenuData: [
+                {
+                    title: "Mountaineering",
+                    img: "./images/story/story-tashi.jpg"
+                },
+                {
+                    title: "Trek",
+                    img: './images/story/story-tenzin.jpg.jpg'
+                },
+                {
+                    title: 'Heli Trek',
+                    img: './images/our-team.jpg'
+                },
+                {
+                    title: 'Double Summit',
+                    img: './images/expertise.jpg'
+                },
+                {
+                    title: '7 Summit',
+                    img: './images/temple.jpg'
+                },
+
+                {
+                    title: '14 Peak Special',
+                    img: './images/temple.jpg'
+                }
+            ]
         },
+
         {
-            title: 'Breathless',
-            subtitle: 'World Highest Race'
+            mainNavaData:{
+                title: 'Breathless',
+                subtitle: 'World Highest Race', 
+            }, 
+
+            subMenuData: [
+                {
+                    title: 'Story Movie'
+                },
+                {
+                    title: 'Be Part'
+                },
+                {
+                    title: 'The World Highest Race'
+                }
+            ]
         },
+
         {
-            title: 'Inspriring Stories',
-            subtitle: 'News & Updates'
+            mainNavaData:{
+                title: 'Inspriring Stories',
+                subtitle: 'News & Updates', 
+            }, 
+            subMenuData: [
+                {
+                    title: 'Inspring Stories Stories'
+                },
+                {
+                    title: 'Testimonials'
+                },
+                {
+                    title: 'News & Updates'
+                }
+            ]
         },
+
         {
-            title: 'Useful Info',
-            subtitle: 'A Tour Guide'
+            mainNavaData:{
+                title: 'Useful Info',
+                subtitle: 'A Tour Guide', 
+            }, 
+            subMenuData: [
+                {
+                    title: 'Terms & Condition'
+                },
+                {
+                    title: 'Gear List'
+                },
+                {
+                    title: 'Travel Insurance'
+                }
+            ]
         },
-   
     ]
+
+
 
     useEffect(() =>{
         const navLinks = document.querySelectorAll('.main-menu ')
@@ -38,8 +162,6 @@ const Header = () => {
         const header = document.querySelector('header');
         const menuArrow = document.querySelectorAll('.menu_dropdown')
        
-
-
         navLinks.forEach((link, i) => {
         
             link.addEventListener('click', (e) => {
@@ -87,8 +209,10 @@ const Header = () => {
         }
 
 
+ 
         
     },[])
+
 
     return (
         <>  
@@ -107,20 +231,22 @@ const Header = () => {
                         <nav>
                             <ul>
                                 {
-                                    mainNavData.map((val, index) => {
-                                        return (
+                                    navData.map((val,index)=> {
+                                        return(
                                             <li className='main-menu' key={index}>
                                                 <a href="#"  className={styles.main_nav}>                               
                                                     <div className={styles.nav_item}>
-                                                        {val.title}
+                                                        {val.mainNavaData.title}
 
-                                                        <span className={styles.subtitle}>{val.subtitle} </span>
+                                                        <span className={styles.subtitle}>{val.mainNavaData.subtitle} </span>
                                                     </div>
                                                 </a>
                                                 <span className={`${styles.dropdown} menu_dropdown`}><ChevronDownOutline /> </span>
                                             </li>
                                         )
                                     })
+
+                               
                                 }
 
                             </ul>
@@ -129,60 +255,45 @@ const Header = () => {
                 </div>
             </header>
 
-            <div className={`${styles.menu_overlay} sub-menu`} >
-                <div className={styles.wrap}>
-                    <div className={styles.img}>
-                        <img src="./images/mountain1.jpg" alt="" />
-                    </div>
+            
+            {
+                navData.map((val,index) => {
+                    return(
+                        <div className={`${styles.menu_overlay} sub-menu`} key={index} >
+                            <div className={styles.wrap}>
+                                <div className={`${styles.img} menu-desktop-img`}>
+                                    {
+                                        val.subMenuData.map((sub,index) => {
+                                            return(
+                                                <img src={sub.img} key={index}/>
+                                            )
+                                        })
+                                    }
+                                </div>
 
-                    <div className={styles.list}>
-                        <ul>
-                            <li><a href="/mountaineering">About Us</a></li>
-                            <li><a href="/tour">Company</a></li>
-                            <li><a href="">Our Team</a></li>
-                            <li><a href="">Expertise</a></li>
-                            <li><a href="">Contact Us </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                                <div className={styles.list}>
+                                    <ul>
 
-            <div className={`${styles.menu_overlay} sub-menu`} >
-                <div className={styles.wrap}>
-                    <div className={styles.img}>
-                        <img src="./images/mount-everest-sunjpg.jpg" alt="" />
-                    </div>
+                                    {
+                                        val.subMenuData.map((sub,index) => {
+                                            return(
+                                                <li key={index}><a href="">{sub.title} </a> </li>
+                                            )
+                                        })
+                                    }
+                                        {/* <li><a href="/mountaineering">About Us</a></li>
+                                        <li><a href="/tour">Company</a></li>
+                                        <li><a href="">Our Team</a></li>
+                                        <li><a href="">Expertise</a></li>
+                                        <li><a href="">Contact Us </a></li> */}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })
+            }
 
-                    <div className={styles.list}>
-                        <ul>
-                            <li><a href="/mountaineering">Mountaineering</a></li>
-                            <li><a href="/tour">Trek</a></li>
-                            <li><a href="">Heli Trek</a></li>
-                            <li><a href="">Double Summit</a></li>
-                            <li><a href="">7 Summit</a></li>
-                            <li><a href="">14 Peak Special</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div className={`${styles.menu_overlay} sub-menu`} >
-                <div className={styles.wrap}>
-                    <h1>Breathless</h1>
-                </div>
-            </div>
-
-            <div className={`${styles.menu_overlay} sub-menu`} >
-                <div className={styles.wrap}>
-                    <h1>Useful Info</h1>
-                </div>
-            </div>
-
-            <div className={`${styles.menu_overlay} sub-menu`} >
-                <div className={styles.wrap}>
-                    <h1>Tailor Made</h1>
-                </div>
-            </div>
             
         </>
     )
