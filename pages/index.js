@@ -179,21 +179,25 @@ export default function Home() {
 
    useEffect(() => {
 
-    var swiperBtnNext = document.querySelector('.swiper-button-next')
-    var swiperBtnPrev = document.querySelector('.swiper-button-prev')
+    let swiperBtnNext = document.querySelectorAll('.swiper-button-next')
+    let swiperBtnPrev = document.querySelectorAll('.swiper-button-prev')
     
-    var swiperBtnContent = document.createElement('div')
-    swiperBtnContent.innerHTML =    `<span >
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.06 20.91"><path d="M0 11.1h25.86L16.97 20c0 .04.91.92.91.91l10-10c0-.01.01-.01.02-.02l.04-.04c.01-.01.02-.02.02-.03.01-.01.02-.03.03-.05.01-.01.01-.03.02-.04 0-.01.01-.02.01-.03v-.02c.01-.01.01-.03.01-.04 0-.02.01-.03.01-.05 0-.01 0-.03.01-.04 0-.02 0-.03.01-.05v-.05-.05c0-.02 0-.03-.01-.05 0-.01 0-.03-.01-.04 0-.02-.01-.03-.01-.05 0-.01-.01-.03-.01-.04 0-.01 0-.01-.01-.02 0-.01-.01-.02-.02-.03-.01-.01-.01-.03-.02-.04-.01-.02-.02-.03-.03-.05-.01-.01-.02-.02-.02-.03-.01-.01-.02-.03-.04-.04.01 0 0-.01 0-.01l-10-10c0-.01-.91.91-.91.91l8.89 8.9H0v1.29z" fill="#333"></path></svg>
-                                    </span>`
+    let swiperBtnContent = `
+                            <div>
+                                <span >
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.06 20.91"><path d="M0 11.1h25.86L16.97 20c0 .04.91.92.91.91l10-10c0-.01.01-.01.02-.02l.04-.04c.01-.01.02-.02.02-.03.01-.01.02-.03.03-.05.01-.01.01-.03.02-.04 0-.01.01-.02.01-.03v-.02c.01-.01.01-.03.01-.04 0-.02.01-.03.01-.05 0-.01 0-.03.01-.04 0-.02 0-.03.01-.05v-.05-.05c0-.02 0-.03-.01-.05 0-.01 0-.03-.01-.04 0-.02-.01-.03-.01-.05 0-.01-.01-.03-.01-.04 0-.01 0-.01-.01-.02 0-.01-.01-.02-.02-.03-.01-.01-.01-.03-.02-.04-.01-.02-.02-.03-.03-.05-.01-.01-.02-.02-.02-.03-.01-.01-.02-.03-.04-.04.01 0 0-.01 0-.01l-10-10c0-.01-.91.91-.91.91l8.89 8.9H0v1.29z" fill="#333"></path></svg>
+                                </span>
+                            </div>`;
+    
 
-    var swiperBtnContentPrev = document.createElement('div')
-    swiperBtnContentPrev.innerHTML =    `<span >
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.06 20.91"><path d="M0 11.1h25.86L16.97 20c0 .04.91.92.91.91l10-10c0-.01.01-.01.02-.02l.04-.04c.01-.01.02-.02.02-.03.01-.01.02-.03.03-.05.01-.01.01-.03.02-.04 0-.01.01-.02.01-.03v-.02c.01-.01.01-.03.01-.04 0-.02.01-.03.01-.05 0-.01 0-.03.01-.04 0-.02 0-.03.01-.05v-.05-.05c0-.02 0-.03-.01-.05 0-.01 0-.03-.01-.04 0-.02-.01-.03-.01-.05 0-.01-.01-.03-.01-.04 0-.01 0-.01-.01-.02 0-.01-.01-.02-.02-.03-.01-.01-.01-.03-.02-.04-.01-.02-.02-.03-.03-.05-.01-.01-.02-.02-.02-.03-.01-.01-.02-.03-.04-.04.01 0 0-.01 0-.01l-10-10c0-.01-.91.91-.91.91l8.89 8.9H0v1.29z" fill="#333"></path></svg>
-                                    </span>`
+    swiperBtnNext.forEach(next => {
+        next.innerHTML =   swiperBtnContent;
+    });
 
-    swiperBtnNext.appendChild(swiperBtnContent)
-    swiperBtnPrev.appendChild(swiperBtnContentPrev)
+    swiperBtnPrev.forEach(prev => {
+        prev.innerHTML = swiperBtnContent;
+    });
+
 
 
    
@@ -483,7 +487,7 @@ export default function Home() {
               </div>
 
                 <Swiper 
-                 slidesPerView={3.5}  
+             
                  spaceBetween={30} 
                  className={`${styles.latest_slider} gbl-act-slider`}
                  navigation={true}
@@ -501,7 +505,7 @@ export default function Home() {
                         "spaceBetween": 30
                     },
                     "1400": {
-                        "slidesPerView": 3.75,
+                        "slidesPerView": 3.5,
                         "spaceBetween": 30
                     }
                  }}  
