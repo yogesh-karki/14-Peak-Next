@@ -1,0 +1,83 @@
+$base-color : #0080C5;
+$dark-blue: #151727;
+
+.wrapper {
+    background-image: linear-gradient(to top, #e6f5fa 0%, white 100%);
+}
+
+.team_wrapper {
+    padding: 40px 0;
+    // background-image: linear-gradient(to top, #e6f5fa 0%, white 100%);
+
+    .card {
+        box-shadow: 0 0.1rem 1rem rgb(0 0 0 / 10%);
+        background: #ffffff;
+        margin: 20px 0;
+        transition: 0.8s;
+        z-index: 2;
+        position: relative;
+
+        &:hover {
+            z-index: 3;
+            transform: translateY(30px) scale(1.2);
+            cursor: pointer;
+        }
+
+
+        figure {
+           img  { 
+               width: 100%;
+           }
+        }
+
+        .text {
+            padding: 30px 20px 20px;
+            min-height: 173px;
+
+            h5 {
+                font-size: 26px;
+                font-weight: 600;
+                color: #000;
+                margin-bottom: 5px;
+            }
+
+            span {
+                display: block;
+                font-family: "Switzer-Light";
+            }
+
+            label {
+                font-family: "Switzer-Light";
+                margin: 5px 0;
+            }
+
+
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 1600px) {
+    .team_wrapper {
+        .card {
+            margin: 15px 0;
+    
+            &:hover {
+                transform: translateY(10px) scale(1.15);
+            }
+    
+            .text {
+                span {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    
+    
+}
+
+@media screen and (max-width: 768px) { 
+   
+}

@@ -68,7 +68,11 @@ const tour = () => {
 
             </Head>
 
-            <InnerBanner />
+            <InnerBanner
+                title={'Mountaineering'}
+                subtitle={'Mount Everest Expedition'}
+                img={'/images/inner-banner1.jpg'}
+            />
 
             <div className="tour_tabs" ref={tabTop}>
                 <Tabs defaultActiveKey="1" className="tour-tabs" onChange={callback} tabBarExtraContent={operations}>

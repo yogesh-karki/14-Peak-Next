@@ -1,4 +1,4 @@
-import  React, { useEffect,useRef } from 'react';
+import  React, { useEffect } from 'react';
 import Head from "next/head";
 
 
@@ -21,6 +21,7 @@ import "swiper/css/navigation"
 import styles from "../styles/Home.module.scss";
 
 import { LocationOutline, RibbonOutline, FlowerOutline, FingerPrintOutline } from "react-ionicons";
+import Intro from '../components/Intro';
 
 
 
@@ -170,12 +171,14 @@ const UpdateData = [
   }
 ]
 
-export default function Home() {
-    const introHead = useRef();
-    const introDiv = useRef();
-    const introText = useRef();
-    
+const IntroData = {
+    title: 'Love and Persistence in climbing mountains',
+    paragraphOne: 'When it comes to scaling the peaks, dangers are plenty. Although the mountains seem serene and gentle from a distance, the weather there this treacherous. The terrain can be downright unforgiving and to have someone accompanying you',
+    paragraphTwo: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, quasi. Animi deserunt corrupti non enim exercitationem optio debitis aliquam, iste omnis ex sint, dolorem molestiae sequi! Dolorum labore praesentium illum!',
+    image: './images/intro-img.jpg'
+}
 
+export default function Home() {
 
    useEffect(() => {
 
@@ -197,29 +200,6 @@ export default function Home() {
     swiperBtnPrev.forEach(prev => {
         prev.innerHTML = swiperBtnContent;
     });
-
-
-
-   
-        var introtl =  gsap.timeline({
-            scrollTrigger: {
-                trigger: introDiv.current,
-                start: 'top center+=25%',
-            },
-            
-        });
-
-        introtl.from(introHead.current, {
-            opacity : 0,
-            y: 100,
-            duration: 0.8
-        })
-
-        introtl.from(introText.current, {
-            opacity : 0,
-            y: 80,
-            duration: 0.8
-        },0.3)
         
     
    })
@@ -248,35 +228,13 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className={styles.intro} ref={introDiv}>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8">
-                            <div className={styles.intro_head} ref={introHead}>
-                                <h4 className="heading_text">Love and Persistence in climbing mountains</h4>
-                            </div>
+            <Intro 
+                title={IntroData.title} 
+                paragraphOne={IntroData.paragraphOne}
+                paragraphTwo={IntroData.paragraphTwo}
+                image={IntroData.image}
 
-                            <div className={styles.intro_text} ref={introText}>
-                                <p >
-                                    When it comes to scaling the peaks, dangers are plenty. Although the mountains seem serene and gentle from a distance, the weather there this treacherous. The terrain can be downright unforgiving and to
-                                    have someone accompanying you
-                                </p>
-
-                                <p >
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, quasi. Animi deserunt corrupti non enim exercitationem optio debitis aliquam, iste omnis ex sint, dolorem molestiae sequi! Dolorum
-                                    labore praesentium illum!
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-md-4">
-                            <div className={styles.intro_img}>
-                                <img src="./images/intro-img.jpg" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            />            
 
             <section className={styles.activities}>
                 <div className="container">
