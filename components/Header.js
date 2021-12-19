@@ -7,33 +7,6 @@ import { ChevronDownOutline } from 'react-ionicons'
 
 const Header = () => {
 
-    // const mainNavData = [
-    //     {
-    //         title: 'Who we are',
-    //         subtitle: 'About Us', 
-      
-            
-    //     },
-
-    //     {
-    //         title: 'Expedition',
-    //         subtitle: 'Services'
-    //     },
-    //     {
-    //         title: 'Breathless',
-    //         subtitle: 'World Highest Race'
-    //     },
-    //     {
-    //         title: 'Inspriring Stories',
-    //         subtitle: 'News & Updates'
-    //     },
-    //     {
-    //         title: 'Useful Info',
-    //         subtitle: 'A Tour Guide'
-    //     },
-   
-    // ];
-
     const navData = [
         {
             mainNavaData:{
@@ -42,22 +15,32 @@ const Header = () => {
             },
             subMenuData: [
                 {
+                    id:'about',
+                    path:'/about',
                     title: "About",
                     img: "./images/story/story-tashi.jpg"
                 },
                 {
+                    id:'company',
+                    path: '/',
                     title: "Company",
-                    img: './images/story/story-tenzin.jpg.jpg'
+                    img: './images/story/story-tenzin.jpg'
                 },
                 {
+                    id: 'our_team',
+                    path: '/our_team',
                     title: 'Our Team',
                     img: './images/our-team.jpg'
                 },
                 {
+                    id: 'expertise',
+                    path: '/',
                     title: 'Expertise',
                     img: './images/expertise.jpg'
                 },
                 {
+                    id: 'contact_us',
+                    path: '/',
                     title: 'Contact Us',
                     img: './images/temple.jpg'
                 }
@@ -71,29 +54,41 @@ const Header = () => {
             }, 
             subMenuData: [
                 {
+                    path:'/mountaineering',
+                    id:'mountaineering',
                     title: "Mountaineering",
-                    img: "./images/story/story-tashi.jpg"
+                    img: "./images/mountain.jpg"
+                },  
+                {
+                    id:'trekking',
+                    path: '/',
+                    title: "Trekking",
+                    img: './images/trek.jpg'
                 },
                 {
-                    title: "Trek",
-                    img: './images/story/story-tenzin.jpg.jpg'
-                },
-                {
+                    id:'heli_trek',
+                    path: '/',
                     title: 'Heli Trek',
-                    img: './images/our-team.jpg'
+                    img: './images/heli.jpg'
                 },
                 {
+                    id: 'double_summit',
+                    path: '/',
                     title: 'Double Summit',
-                    img: './images/expertise.jpg'
+                    img: './images/double-summit.jpg'
                 },
-                {
+                {   
+                    id: '7_summit',
+                    path: '/',
                     title: '7 Summit',
-                    img: './images/temple.jpg'
+                    img: './images/seven-sumit.jpg'
                 },
 
                 {
+                    id: '14_peak_special',
+                    path: '/',
                     title: '14 Peak Special',
-                    img: './images/temple.jpg'
+                    img: './images/14-peak-special.jpg'
                 }
             ]
         },
@@ -106,12 +101,18 @@ const Header = () => {
 
             subMenuData: [
                 {
-                    title: 'Story Movie'
+                    id:'story_movie',
+                    path: '/',
+                    title: 'Story Movie',
+                    img:'./images/breathless.jpg',
+                },
+                {   id:'be_part',
+                    path: '/',
+                    title: 'Be Part',
+                    img:'./images/breathless.jpg',
                 },
                 {
-                    title: 'Be Part'
-                },
-                {
+                    path: '/',
                     title: 'The World Highest Race'
                 }
             ]
@@ -124,12 +125,15 @@ const Header = () => {
             }, 
             subMenuData: [
                 {
+                    path: '/',
                     title: 'Inspring Stories Stories'
                 },
                 {
+                    path: '/',
                     title: 'Testimonials'
                 },
                 {
+                    path: '/',
                     title: 'News & Updates'
                 }
             ]
@@ -142,12 +146,15 @@ const Header = () => {
             }, 
             subMenuData: [
                 {
+                    path: '/',
                     title: 'Terms & Condition'
                 },
                 {
+                    path: '/',
                     title: 'Gear List'
                 },
                 {
+                    path: '/',
                     title: 'Travel Insurance'
                 }
             ]
@@ -171,7 +178,6 @@ const Header = () => {
                     removeSubMenu()
                     removeDropArrow()
                 } else {
-                    console.log(link)
                     addSubMenu(i)  
                     link.classList.add('active')
                 }
@@ -187,6 +193,9 @@ const Header = () => {
             subMenu[i].classList.add(styles.menu_show)
             document.querySelector('.main-container').classList.add('scroll-lock')
             header.classList.add(styles.solid);
+
+            let activeImg = subMenu[i].querySelector('.menu-desktop-img img')
+            activeImg.classList.add(styles.img_show)
         }
 
         const removeDropArrow = () => {
@@ -208,8 +217,27 @@ const Header = () => {
             document.querySelector('.main-container').classList.remove('scroll-lock')
         }
 
+        let subMenuList = document.querySelectorAll('.menu-desktop-list li')
+        let subMenuImg = document.querySelectorAll('.menu-desktop-img img')
 
  
+        subMenuList.forEach((menu) => {
+
+            menu.addEventListener('click', () => {
+                removeSubMenu()
+                removeDropArrow()
+            })
+
+            menu.addEventListener('mouseover', () => {
+                subMenuImg.forEach((img) => {
+                    img.classList.remove(styles.img_show)
+                    let imgId = img.id;
+                    if(menu.id === imgId) {
+                        img.classList.add(styles.img_show)
+                    }
+                })
+            })
+        })
         
     },[])
 
@@ -234,7 +262,7 @@ const Header = () => {
                                     navData.map((val,index)=> {
                                         return(
                                             <li className='main-menu' key={index}>
-                                                <a href="#"  className={styles.main_nav}>                               
+                                                <a className={styles.main_nav}>                               
                                                     <div className={styles.nav_item}>
                                                         {val.mainNavaData.title}
 
@@ -265,27 +293,27 @@ const Header = () => {
                                     {
                                         val.subMenuData.map((sub,index) => {
                                             return(
-                                                <img src={sub.img} key={index}/>
+                                                <img src={sub.img} key={index} id={sub.id} />
                                             )
                                         })
                                     }
                                 </div>
 
-                                <div className={styles.list}>
+                                <div className={`${styles.list} menu-desktop-list`}>
                                     <ul>
 
                                     {
                                         val.subMenuData.map((sub,index) => {
                                             return(
-                                                <li key={index}><a href="">{sub.title} </a> </li>
+                                                <li key={index} id={sub.id}> 
+                                                    <Link href = {sub.path}>
+                                                        {sub.title}
+                                                    </Link>  
+                                                </li>
                                             )
                                         })
                                     }
-                                        {/* <li><a href="/mountaineering">About Us</a></li>
-                                        <li><a href="/tour">Company</a></li>
-                                        <li><a href="">Our Team</a></li>
-                                        <li><a href="">Expertise</a></li>
-                                        <li><a href="">Contact Us </a></li> */}
+                                    
                                     </ul>
                                 </div>
                             </div>

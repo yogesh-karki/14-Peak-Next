@@ -125,7 +125,10 @@ figure {
 .spacing > * {
   padding-right: calc(var(--bs-gutter-x) * 0.8);
   padding-left: calc(var(--bs-gutter-x) * 0.8);
+
 }
+
+
 
 
 .faq_content {
@@ -241,6 +244,12 @@ figure {
 
   .tour_tabs .ant-tabs-nav {
     padding: 0px 77px;
+  }
+
+  .spacing > * {
+    padding-right: calc(var(--bs-gutter-x) * 0.6);
+    padding-left: calc(var(--bs-gutter-x) * 0.6);
+  
   }
 
 }

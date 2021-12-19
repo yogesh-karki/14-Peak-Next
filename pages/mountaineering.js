@@ -2,6 +2,7 @@
   
 import Head from "next/head";
 
+import Intro from '../components/Intro';
 import BannerSlider from '../components/BannerSlider'
 import PackageCard from '../components/PackageCard'
 
@@ -15,6 +16,13 @@ import styles from '../styles/Layout.module.scss'
 
 const mountaineering = () => {
     
+    const IntroData = {
+        title: 'Climbing the Worlds Highest Mountains',
+        paragraphOne: 'Fourteen Peak Expedition Pvt.Ltd is a full established high altitude sport company. It is also among the world largest expedition organizer . A decade year of experience in the field of mountaineering.  ',
+        paragraphTwo: 'Today, we have a team to coordinate the expedition possible within reach of normal people. Molestiae ducimus provident in accusantium quidem consequuntur, asperiores mollitia, at dolor consequatur.',
+        image: './images/intro-mountain.jpg'
+    }
+
     const packageData = [
         {
             title: 'Mount Everest Expedition',
@@ -56,34 +64,13 @@ const mountaineering = () => {
 
             <BannerSlider />
 
-            <div className={styles.category_intro}>
-                <div className="container">
-                    <div className={styles.wrap}>
-                        <div>
-                            <span>Mountain Expedition</span>
-                            <h2 className='heading_text'>Climbing the Worlds Highest Mountains</h2>
-                        </div>
+            <Intro 
+                title={IntroData.title} 
+                paragraphOne={IntroData.paragraphOne}
+                paragraphTwo={IntroData.paragraphTwo}
+                image={IntroData.image}
 
-                        <div>
-                            <p>
-                                Fourteen Peak Expedition Pvt.Ltd is a full established  high altitude sport company. 
-                                It is also among the world largest expedition organizer above 8000 meter mountain 
-                                including 14 Peak and Seven Summit in the world. A decade year of experience in the 
-                                field of mountaineering. Today, we have a team to coordinate the expedition possible 
-                                within reach of normal people.
-                            </p>
-
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ducimus provident
-                                 in accusantium quidem consequuntur, asperiores mollitia, at dolor consequatur blanditiis
-                                  soluta dicta, porro cupiditate odit sequi voluptatum. Magni impedit odio quibusdam, similique,
-                                   repellat aliquam temporibus at autem, maiores itaque ipsa totam? Assumenda repudiandae et blanditiis 
-                                   atque accusantium dignissimos animi.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            />  
 
             <div className={styles.search_card}>
                 <div className="container">

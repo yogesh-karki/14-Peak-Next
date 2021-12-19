@@ -4,7 +4,7 @@ import styles from '../styles/Layout.module.scss'
 
 
 
-const InnerBanner = () => {
+const InnerBanner = (props) => {
     const backgroundImage= useRef();
     
 
@@ -41,10 +41,10 @@ const InnerBanner = () => {
 
     return ( 
         <section className={styles.inner_banner} id="innerBanner" >
-            <div className={styles.ib_bg} ref={backgroundImage} style={{ background: 'url(/images/inner-banner1.jpg)' }}></div>
+            <div className={styles.ib_bg} ref={backgroundImage} style={{ background: `url(${props.img})` }}></div>
             <div className={styles.text}>
-                <p>A purely artistic journey to the mother nature</p>
-                <h2>Everest Base Camp Via Kalapather</h2>
+                <p>{props.title}</p>
+                <h2>{props.subtitle}</h2>
             </div>
         </section>
      );

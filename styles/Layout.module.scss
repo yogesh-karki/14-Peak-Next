@@ -552,10 +552,18 @@ $dark-blue: #151727;
 
 
 .package_card {
+    transition: 0.8s;
+
+    &:hover {
+        z-index: 3;
+        transform: translateY(30px) scale(1.2);
+        cursor: pointer;
+    }
+    
     figure {
         img {
             width: 100%;
-            height: 346.68px;
+            height: 434px;
             object-fit: cover;
         }
     }
@@ -663,25 +671,7 @@ $dark-blue: #151727;
     position: relative;
 }
 
-.category_intro {
-    padding: 80px 0;
 
-    .wrap {
-        display: flex;
-        flex-wrap: wrap;
-
-        & > div {
-            width: 60%;
-
-            &:first-child {
-                width: 40%;
-                padding-right: 20px;
-            }
-        }
-    }
-
-
-}
 
 .list_cards {
     padding: 80px 0;
@@ -808,20 +798,7 @@ $dark-blue: #151727;
         }
     }
 
-    .category_intro {
-        .wrap {
-            display: block;
 
-            & > div {
-                width: 100%;
-    
-                &:first-child {
-                    width: 80%;
-                    padding-right: 0px;
-                }
-            }
-        }
-    }
 
 }
 
