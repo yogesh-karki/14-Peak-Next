@@ -25,8 +25,11 @@ $dark-blue: #151727;
     }
 
     .intro_img {
+        text-align: right;
+
         img {
             width: 100%;
+            max-width: 450px;
             height: 540px;
             object-fit: cover;
         }

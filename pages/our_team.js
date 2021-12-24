@@ -125,7 +125,7 @@ const about = () => {
                                             {
                                                 val.members.map((member, index) => {
                                                     return(
-                                                        <div className="col-md-3 col-lg-4 col-xl-3" key={index}>
+                                                        <div className="col-md-2 col-lg-4 col-xl-3" key={index}>
                                                             <div className={styles.card}>
                                                                 <figure>
                                                                     <img src={member.image} />

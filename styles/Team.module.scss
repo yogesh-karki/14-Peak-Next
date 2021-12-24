@@ -23,6 +23,15 @@ $dark-blue: #151727;
             cursor: pointer;
         }
 
+        &.expert_card {
+            position: relative;
+
+            .text {
+                min-height: auto;
+                padding-bottom: 30px;
+            }
+        }
+
 
         figure {
            img  { 
@@ -52,6 +61,105 @@ $dark-blue: #151727;
             }
 
 
+        }
+    }
+}
+
+.intro_experts {
+    padding: 80px 0; 
+
+    .img {
+        img {
+            width: 100%;
+        }
+    } 
+
+    .text {
+        padding-left: 40px;
+
+        .head {
+            h3 {
+                font-family: "Kudryashev Headline";
+                margin: auto;
+                font-size: 48px;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
+
+            p {
+                text-transform: uppercase;
+                font-weight: 100;
+                margin-bottom: 0;
+                font-size: 16px;
+            }
+
+        }
+
+        blockquote { 
+          
+            color: #000;
+            margin-top: 50px;
+            position: relative;
+            font-weight: 100;
+            font-size: 28px;
+            width: 60%;
+            margin-left: 170px;
+            line-height: 1.7;
+
+
+            &:after {
+                font-family: 'Switzer-Italic';
+                font-size: 41rem;
+                color: rgb(234, 234, 234);
+                position: absolute;
+                content: '"';
+                bottom: 50px;
+                right: -50px;
+                line-height: 0;
+                z-index: -1;
+            }
+        
+        }
+    }
+}
+
+.timeline {
+    padding-bottom: 80px ;
+
+    h5 {
+        font-size: 28px;
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 30px;
+    }
+
+    table {
+        width: 100%;
+        font-style: 17px;
+
+        th {
+            font-family: "Switzer-Semibold";
+            text-transform: uppercase;
+            padding: 8px 0px 0;
+            font-size: 18px;
+
+            &:last-child {
+                width: 250px;
+                max-width: 250px;
+            }
+        }
+
+        td {
+            font-family: "Switzer-Light";
+            padding: 10px 0px;
+            font-size: 18px;
+
+            img {
+                width: 20px !important;
+                height: 20px !important;
+            }
+
+            
         }
     }
 }

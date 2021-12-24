@@ -10,6 +10,7 @@ import PackageCard from '../components/PackageCard'
 
 
 import styles from '../styles/Layout.module.scss'
+import ThreeColFacts from "../components/ThreeColFacts";
 
 
 
@@ -54,6 +55,23 @@ const mountaineering = () => {
         },
     ]
 
+    const data = [
+        {
+            title: '8000m Mountain Expedition',
+            number: '2000',
+            text: 'More than 2000 individual have scaled 8000 meters mountain in the Himalayas.'
+        },
+        {
+            title: 'Peak Climbing',
+            number: '5000',
+            text: 'Starting from the beginner to the professional Climber more than 5000 individual have scaled peak.'
+        },
+        {
+            title: 'Trekking',
+            number: '10000',
+            text: 'More than 10,000 people have done trekking with us in the Himalayas of Nepal.'
+        }
+    ]
 
     return (
         <>
@@ -113,6 +131,10 @@ const mountaineering = () => {
 
                     
                 </div>
+            </div>
+
+            <div className="auto-padding">
+                <ThreeColFacts factData={data} />
             </div>
 
         </>

@@ -1,13 +1,13 @@
-import React ,{useEffect} from 'react';
+// import React ,{useEffect} from 'react';
 
 
-const Scroll = () => {
-    useEffect(() => {
+// const Scroll = () => {
+//     useEffect(() => {
         
-    })
+//     })
 
-    return null
-}
+//     return null
+// }
 
 
-export default Scroll
+// export default Scroll
