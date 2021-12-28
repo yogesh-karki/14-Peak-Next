@@ -21,12 +21,6 @@ const Header = () => {
                     img: "./images/story/story-tashi.jpg"
                 },
                 {
-                    id:'company',
-                    path: '/',
-                    title: "Company",
-                    img: './images/story/story-tenzin.jpg'
-                },
-                {
                     id: 'our_team',
                     path: '/our_team',
                     title: 'Our Team',
@@ -34,7 +28,7 @@ const Header = () => {
                 },
                 {
                     id: 'expertise',
-                    path: '/',
+                    path: '/expertise',
                     title: 'Expertise',
                     img: './images/expertise.jpg'
                 },
@@ -126,7 +120,7 @@ const Header = () => {
             subMenuData: [
                 {
                     path: '/',
-                    title: 'Inspring Stories Stories'
+                    title: 'Inspring Stories'
                 },
                 {
                     path: '/',

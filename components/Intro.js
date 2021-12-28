@@ -12,7 +12,7 @@ const Intro = (props) => {
     const introText = useRef();
 
     useEffect(() =>{
-           
+    
         var introtl =  gsap.timeline({
             scrollTrigger: {
                 trigger: introDiv.current,

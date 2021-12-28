@@ -1,8 +1,11 @@
 import  React, { useEffect } from 'react';
 import Head from "next/head";
+import Link from 'next/link'
+
 
 
 import FooterAnimation from '../components/FooterAnimation'
+import HeadingFormat from '../components/HeadingFormat'
 import {ButtonDark,ButtonWhite } from '../components/Button';
 
 import { gsap } from "gsap/dist/gsap";
@@ -29,31 +32,37 @@ import Intro from '../components/Intro';
 
 const activityData = [
     {
+        path:'/mountaineering' ,
         img: "./images/mountain.jpg",
         title: "Mountaineering",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque, ducimus tempore nam non voluptates laudantium.",
     },
     {
+        path:'/mountaineering' ,
         img: "./images/trek.jpg",
         title: "Trekking",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. voluptates laudantium.",
     },
     {
+        path:'/mountaineering' ,
         img: "./images/heli.jpg",
         title: "Heli Trek",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque, ducimus tempore nam ",
     },
     {
+        path:'/mountaineering' ,
         img: "./images/double-summit.jpg",
         title: "Double Summit",
         description: "Lorem  doloremque, ducimus tempore nam non voluptates laudantium.",
     },
     {
+        path:'/mountaineering' ,
         img: "./images/seven-sumit.jpg",
         title: "7 summit",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque, ducimus tempore nam non voluptates laudantium.",
     },
     {
+        path:'/mountaineering' ,
         img: "./images/14-peak-special.jpg",
         title: "14 Peak Special",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque, ducimus tempore nam non voluptates laudantium.",
@@ -200,7 +209,7 @@ export default function Home() {
     swiperBtnPrev.forEach(prev => {
         prev.innerHTML = swiperBtnContent;
     });
-        
+
     
    })
 
@@ -239,14 +248,17 @@ export default function Home() {
             <section className={styles.activities}>
                 <div className="container">
                     <div className={`${styles.activity_head} mb-show`}>
-                        <h4 className="heading_text">Expedition Services</h4>
-                        <p>Achieve your goal and dream. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, aperiam?</p>
+                        <HeadingFormat 
+                            title={"Expedition Services"}
+                            text={"Achieve your goal and dream. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, aperiam?"}
+                        />
                     </div>
                 </div>
 
                 <Swiper
                  spaceBetween={30} 
                  className= {`${styles.activities_slides} gbl-act-slider`}
+                 slidesPerView={'auto'}
                  navigation={true}
                  breakpoints={{
                     "640": {
@@ -262,7 +274,6 @@ export default function Home() {
                         "spaceBetween": 30
                     },
                     "1400": {
-                        "slidesPerView": 3.75,
                         "spaceBetween": 30
                     }
                  }}  
@@ -270,8 +281,10 @@ export default function Home() {
                     <SwiperSlide className={styles.wrap}>
                         <div className={styles.activity_slide}>
                             <div className={styles.activity_head}>
-                                <h4 className="heading_text">Expedition Services</h4>
-                                <p>Achieve your goal and dream. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, aperiam?</p>
+                                <HeadingFormat 
+                                    title={"Expedition Services"}
+                                    text={"Achieve your goal and dream. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, aperiam?"}
+                                />
                             </div>
                         </div>
                     </SwiperSlide>
@@ -279,15 +292,22 @@ export default function Home() {
                     {activityData.map((data, index) => {
                         return (
                             <SwiperSlide className={styles.wrap} key={index}>
-                                <div className={styles.activity_slide}>
-                                    <figure>
-                                        <img src={data.img} alt="" />
-                                    </figure>
+                                <div className={styles.activity_slide} >
+                                    <Link href= {data.path}>
+                                        <a >
+                                            <figure>
+                                                <img src={data.img} alt="" />
+                                            </figure>
 
-                                    <div className={styles.slide_content}>
-                                        <h4>{data.title}</h4>
-                                        
-                                    </div>
+                                            <div className={styles.slide_content}>
+                                                <h4>{data.title}</h4>
+                                                
+                                            </div>
+
+                                          
+                                        </a>
+                                    </Link>
+                                    
                                 </div>
                             </SwiperSlide>
                         );
@@ -299,8 +319,11 @@ export default function Home() {
             <section className={styles.destination} style={{ backgroundImage: "url('/images/destinations-background.png')" }}>
                 <div className="container">
                     <div className={styles.destination_head}>
-                        <span className="heading-subtitle">Experince Awaits</span>
-                        <h4 className="heading_text">Choose Your Dream Destination</h4>
+                        <HeadingFormat
+                            subtitle={'Experince Awaits'} 
+                            title={"Choose Your Dream Destination"}
+                            
+                        />
                     </div>
 
                     <div className={styles.nepal_map}>
@@ -338,9 +361,11 @@ export default function Home() {
                 <div className="container">
                     <div className={styles.story_article}>
                         <div className={styles.story_header}>
-                            <span className="heading_subtitle">Overcoming Fears</span>
-                            <h4 className="heading_text">Inspriring Stories</h4>
-                            <p>Inspirational Stories Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quibusdam saepe corrupti corporis dignissimos consequuntur maxime fugiat, voluptate quia</p>
+                            <HeadingFormat
+                                subtitle={'Overcoming Fears'} 
+                                title={"Inspriring Stories"}
+                                text={"Inspirational Stories Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quibusdam saepe corrupti corporis dignissimos consequuntur maxime fugiat, voluptate quia"}
+                            />
                         </div>
 
                         <div className={styles.story_right}>
@@ -383,19 +408,19 @@ export default function Home() {
                     <div className={styles.tm_wrap}>
                         <div className={styles.tm_article} style={{ backgroundImage: "url('/images/tailor-made.png')" }}>
                             <div className={styles.tm_article_wrap}>
-                              <h4 className="heading_text">An Idea? A travel Plan?</h4>
-                              <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis cum maxime at soluta delectus repudiandae quibusdam culpa, dolorum quod molestiae repudiandae officiis?
-                              </p>
-                              <p>
-                              Eaque quam cum, expedita, qui tempore cumque quod obcaecati nihil nostrum possimus totam!
-                              </p>
+                            <HeadingFormat
+                                title={"An Idea? A travel Plan?"}
+                                text={"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis cum maxime at soluta delectus repudiandae quibusdam culpa, dolorum quod molestiae repudiandae officiis?"}
+                            />
+
                             </div>
                         </div>
 
                         <div className={styles.testimonial}>
                           <div className={styles.twrap}>
-                            <h4 className="heading_text">Our Travelers</h4>
+                            <HeadingFormat
+                                title={"Our Travelers"}
+                            />
                           </div>
 
                             <Swiper 
@@ -437,10 +462,12 @@ export default function Home() {
             <section className={styles.featured}>
               <div className="container">
                 <div className={styles.featured_head}>
-                  <span className="heading_subtitle">Never to late to join us</span>
-                  <h4 className="heading_text">Latest Update</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit . 
-                  Est officia provident veniam quod natus consequatur architecto ullam ipsa, aliquid earum?</p>            
+                    <HeadingFormat
+                        subtitle={'Never to late to join us'} 
+                        title={"Latest Update"}
+                        text={"Lorem ipsum dolor sit amet consectetur adipisicing elit .Est officia provident veniam quod natus consequatur architecto ullam ipsa, aliquid earum?"}
+                    />
+         
                 </div>
               </div>
 
@@ -492,7 +519,7 @@ export default function Home() {
                     })
                   }
                 </Swiper>
-            </section>
+            </section>       
 
             <FooterAnimation />
 
