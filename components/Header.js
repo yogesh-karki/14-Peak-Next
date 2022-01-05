@@ -119,16 +119,22 @@ const Header = () => {
             }, 
             subMenuData: [
                 {
-                    path: '/',
-                    title: 'Inspring Stories'
+                    id: 'inspiring-stories',
+                    path: '/videos',
+                    title: 'Inspring Stories',
+                    img:'./images/news2.jpg',
                 },
                 {
-                    path: '/',
-                    title: 'Testimonials'
+                    id: 'testimonials',
+                    path: '/testimonial',
+                    title: 'Testimonials',
+                    img:'./images/latest1.jpg',
                 },
                 {
-                    path: '/',
-                    title: 'News & Updates'
+                    id: '/news',
+                    path: '/news',
+                    title: 'News & Updates',
+                    img:'./images/news1.jpg',
                 }
             ]
         },

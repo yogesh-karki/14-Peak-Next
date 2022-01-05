@@ -15,7 +15,24 @@ import styles from '../styles/About.module.scss'
 import ThreeColFacts from '../components/ThreeColFacts';
 
 
+// import locomotiveScroll from "locomotive-scroll";
+
 const about = () => {
+
+    // useEffect(() => {
+    //     if (typeof window === "undefined") {
+    //       return;
+    //     }
+    
+    //     const scroll = (locomotiveScroll) => {
+    //       new locomotiveScroll.default({
+    //         el: scrollRef.current,
+    //         smooth: true
+    //       });
+    //     };
+    
+    //     return () => scroll.destroy();
+    //   }, []);
 
     const IntroData = {
         title: 'High Altitude Adventure Sport Company',
@@ -134,7 +151,7 @@ const about = () => {
                 image={IntroData.image}
             />
             
-            <section className={styles.mission_wrap} ref={abtBox}>
+            <section className={styles.mission_wrap} ref={abtBox} >
                 <div className="container">
                     <div className={styles.wrap}>
                         <div className={styles.mission}>
