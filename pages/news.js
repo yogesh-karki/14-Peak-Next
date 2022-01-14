@@ -20,7 +20,7 @@ const news = () => {
             title : 'Three siblings are on union Glacier camp',
             img: './images/news1.jpg',
             date : "2021-12-23",
-            link: "/"
+            link: "/newsDetail"
         },
 
         {

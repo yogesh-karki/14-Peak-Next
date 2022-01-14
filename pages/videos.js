@@ -16,34 +16,39 @@ const videos = () => {
         {
             img: "./images/news1.jpg",
             title: "Union Glacier - The expedition to Antarctica (the last degree ) ",
-            category: "Main-video"
+            category: "Main-video",
+            order: "1"
         },
         {
             img: "./images/full-width.jpg",
             title:"Everest Exxpedition 2021",
-            category: "Expedition Video"
+            category: "Expedition Video",
+            order: "2"
         },
         {
             img: "./images/intro-img.jpg",
             title:"Everest Exxpedition 2021",
-            category: "Expedition Video"
+            category: "Expedition Video",
+            order: "3"
         },
         {
             img: "./images/intro-mountain.jpg",
             title:"Everest Exxpedition 2021",
-            category: "Expedition Video"
+            category: "Expedition Video",
+            order: "4"
         },
         {
             img: "./images/lake.jpg",
             title:"Everest Exxpedition 2021",
-            category: "Expedition Video"
+            category: "Expedition Video",
+            order: "5"
         },
 
     ]
    
  
     const mainvideo = videoData.filter((item) => {
-        return item.category === "Main-video"
+        return item.order === "1"
     })
 
   
@@ -79,7 +84,7 @@ const videos = () => {
                     <div className={styles.smaller_sections}>
                         <div className="row spacing">
                             {
-                                videoData.map((val,index) => {
+                                videoData.slice(1).map((val,index) => {
                                     return(
                                         <div className="col-md-6" key={index}>
                                             <div className={styles.wrap}>

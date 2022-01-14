@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
 
 import Link from 'next/link'
+import { useRouter } from "next/router";
 
 import styles from '../styles/Header.module.scss'
 import { ChevronDownOutline } from 'react-ionicons'
 
 const Header = () => {
+
+    const router = useRouter();
 
     const navData = [
         {
@@ -244,7 +247,7 @@ const Header = () => {
 
     return (
         <>  
-            <header  className={ `${styles.header} `}>
+            <header className={router.pathname == "/newsDetail" ? `${styles.header} ${styles.solid} ` : `${styles.header} `} >
                 <div className="container">
                     <div className={styles.nav_container}>
                         <div className={styles.logo}>
