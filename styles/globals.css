@@ -4,8 +4,6 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Pragmatica';
-  scroll-behavior: smooth;
-
 }
 
 a {
@@ -85,7 +83,7 @@ figure {
   font-weight: 600;
   font-family: 'Switzer-Semibold';
   letter-spacing: 0.3px;
-  color:#fff;
+  color:#333;
 }
 
 .ant-tabs-top > .ant-tabs-nav::before {
@@ -93,30 +91,23 @@ figure {
 }
 
 .tour_tabs .ant-tabs-nav {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  width: 100%;
+
   z-index: 7;
-  background: rgb(0 128 197 / 70%);
+  background: #fff;
   padding: 0 190px;
-  box-shadow: 0 .1rem 1rem rgba(0,0,0,.10);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-80px);
-  transition: 0.5s;
-  backdrop-filter: blur(5.5px);
+
 }
 
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: #fff;
+  color: #333;
   text-shadow: 0;
 }
 
 .ant-tabs-nav.sticky {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0)
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .iti_flex iframe {

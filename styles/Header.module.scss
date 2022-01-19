@@ -10,6 +10,8 @@ $dark-blue: #151727;
     padding-top: 5px;
     // background: linear-gradient(1deg, rgba(255,255,255,0) 15%, rgba(0,0,0,0.3) 100%);
 
+
+
     .logo_text {
         display: none;
     }
@@ -38,6 +40,10 @@ $dark-blue: #151727;
 
         .nav_container {
             nav {
+                &::after {
+                    display: none;
+                }
+
                 ul {
                     li {
                         a {
