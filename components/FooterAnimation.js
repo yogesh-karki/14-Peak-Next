@@ -22,34 +22,34 @@ const FooterAnimation = () => {
     useEffect(() => {
     
 
-        function myFunc () {
-            wrap.current.remove()
-        }
+        // function myFunc () {
+        //     wrap.current.remove()
+        // }
 
-        gsap.to(wrap.current, {
-            scrollTrigger: {
-                trigger: box.current,
-                start: 'top top',
-                end: "bottom center",
-                pin: true,
-                // markers: true
-            },
-            onComplete: myFunc,
+        // gsap.to(wrap.current, {
+        //     scrollTrigger: {
+        //         trigger: box.current,
+        //         start: 'top top',
+        //         end: "bottom center",
+        //         pin: true,
+        //         // markers: true
+        //     },
+        //     onComplete: myFunc,
             
-        })
+        // })
 
-        gsap.to(title.current, {
-            scrollTrigger: {
-                trigger: box.current,
-                start: 'top top',
-                end: "bottom bottom",
-                scrub: 2,
+        // gsap.to(title.current, {
+        //     scrollTrigger: {
+        //         trigger: box.current,
+        //         start: 'top top',
+        //         end: "bottom bottom",
+        //         scrub: 2,
 
-            },
+        //     },
 
-            scale: 10
+        //     scale: 10
             
-        })
+        // })
     })
 
     return (

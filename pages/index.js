@@ -246,6 +246,7 @@ export default function Home() {
             />            
 
             <section className={styles.activities}>
+            <div className={styles.outline} style={{ backgroundImage: "url('/images/outline-background.svg')" }}></div>
                 <div className="container">
                     <div className={`${styles.activity_head} mb-show`}>
                         <HeadingFormat 
@@ -280,6 +281,7 @@ export default function Home() {
                 >
                     <SwiperSlide className={styles.wrap}>
                         <div className={styles.activity_slide}>
+                            
                             <div className={styles.activity_head}>
                                 <HeadingFormat 
                                     title={"Expedition Services"}

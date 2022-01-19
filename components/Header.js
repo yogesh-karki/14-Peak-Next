@@ -247,7 +247,7 @@ const Header = () => {
 
     return (
         <>  
-            <header className={router.pathname == "/newsDetail" ? `${styles.header} ${styles.solid} ` : `${styles.header} `} >
+            <header className={ `${styles.header} `} >
                 <div className="container">
                     <div className={styles.nav_container}>
                         <div className={styles.logo}>
